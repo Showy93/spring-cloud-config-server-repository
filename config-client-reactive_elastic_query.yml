@@ -25,6 +25,8 @@ kafka-config:
 
 server:
   port: 8183
+  servlet:
+    context-path: /reactive-elastic-query-service
 
 spring:
   webflux:
