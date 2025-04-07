@@ -1,5 +1,14 @@
 elastic-query-service:
   version: v1
+  custom-audience: elastic-query-service
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/auth/realms/microservices-realm
+          jwk-set-uri: http://localhost:8081/auth/realms/microservices-realm/protocol/openid-connect/certs
 
 server:
   port: 8183
