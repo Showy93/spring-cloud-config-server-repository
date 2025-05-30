@@ -39,6 +39,7 @@ spring:
             issuerUri: http://localhost:8081/auth/realms/microservices-realm
 
 security:
+  paths-to-ignore: /api-docs, /actuator/**
   logout-success-url: http://localhost:8184/elastic-query-web-client
   default-client-registration-id: keycloak
 
@@ -46,3 +47,15 @@ user-config:
   username: test
   password: '{cipher}b44251185f0f7468fba7048c704b8c743d49d95091b00f81b5185bc5b8b3c3e1' #test1234
   roles: USER
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure.include: health,prometheus
+      path-mapping.prometheus: metrics
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      cache.time-to-live: 1ms
